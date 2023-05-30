@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OtoGaleriYönetimiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Arabalar">
+          <Key>
+            <PropertyRef Name="ArabaId" />
+          </Key>
+          <Property Name="ArabaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vites" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fiyat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KayitTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AracResmi" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="MusteriId" />
+          </Key>
+          <Property Name="MusteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabaId" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fiyat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerUsers">
+          <Key>
+            <PropertyRef Name="MusteriId" />
+          </Key>
+          <Property Name="MusteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KiralanmisAraba">
+          <Key>
+            <PropertyRef Name="KiraNo" />
+          </Key>
+          <Property Name="KiraNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriId" Type="int" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ArabaId" Type="int" Nullable="false" />
+          <Property Name="GünlükFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KacGün" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToplamÜcret" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KiralananTarih" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KiralikAraclar">
+          <Key>
+            <PropertyRef Name="KiralikNo" />
+          </Key>
+          <Property Name="KiralikNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabaId" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GünlükFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AracResim" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SatilanArabalar">
+          <Key>
+            <PropertyRef Name="SatilanNo" />
+          </Key>
+          <Property Name="SatilanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabaId" Type="int" Nullable="false" />
+          <Property Name="AlisFiyati" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SatisFiyati" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SatilikAraclar">
+          <Key>
+            <PropertyRef Name="SatilikNo" />
+          </Key>
+          <Property Name="SatilikNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabaId" Type="int" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Plaka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vites" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Km" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fiyat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AracResim" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="OtoGaleriYönetimiModelStoreContainer">
+          <EntitySet Name="AdminUsers" EntityType="Self.AdminUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Arabalar" EntityType="Self.Arabalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerUsers" EntityType="Self.CustomerUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KiralanmisAraba" EntityType="Self.KiralanmisAraba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KiralikAraclar" EntityType="Self.KiralikAraclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SatilanArabalar" EntityType="Self.SatilanArabalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SatilikAraclar" EntityType="Self.SatilikAraclar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OtoGaleriYönetimiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Arabalar">
+          <Key>
+            <PropertyRef Name="ArabaId" />
+          </Key>
+          <Property Name="ArabaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vites" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KayitTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AracResmi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="MusteriId" />
+          </Key>
+          <Property Name="MusteriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabaId" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CustomerUser">
+          <Key>
+            <PropertyRef Name="MusteriId" />
+          </Key>
+          <Property Name="MusteriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SatilanArabalar">
+          <Key>
+            <PropertyRef Name="SatilanNo" />
+          </Key>
+          <Property Name="SatilanNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabaId" Type="Int32" Nullable="false" />
+          <Property Name="AlisFiyati" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SatisFiyati" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SatilikAraclar">
+          <Key>
+            <PropertyRef Name="SatilikNo" />
+          </Key>
+          <Property Name="SatilikNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabaId" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plaka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vites" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Km" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AracResim" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OtoGaleriYönetimiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
+          <EntitySet Name="Arabalars" EntityType="Self.Arabalar" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerUsers" EntityType="Self.CustomerUser" />
+          <EntitySet Name="SatilanArabalars" EntityType="Self.SatilanArabalar" />
+          <EntitySet Name="SatilikAraclars" EntityType="Self.SatilikAraclar" />
+          <EntitySet Name="KiralikAraclars" EntityType="OtoGaleriYönetimiModel.KiralikAraclar" />
+          <EntitySet Name="KiralanmisArabas" EntityType="OtoGaleriYönetimiModel.KiralanmisAraba" />
+        </EntityContainer>
+        <EntityType Name="KiralikAraclar">
+          <Key>
+            <PropertyRef Name="KiralikNo" />
+          </Key>
+          <Property Name="KiralikNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabaId" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GünlükFiyat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AracResim" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KiralanmisAraba">
+          <Key>
+            <PropertyRef Name="KiraNo" />
+          </Key>
+          <Property Name="KiraNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriId" Type="Int32" Nullable="false" />
+          <Property Name="AdSoyad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaId" Type="Int32" Nullable="false" />
+          <Property Name="GünlükFiyat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KacGün" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToplamÜcret" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KiralananTarih" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OtoGaleriYönetimiModelStoreContainer" CdmEntityContainer="OtoGaleriYönetimiEntities">
+          <EntitySetMapping Name="AdminUsers">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUsers">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Arabalars">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.Arabalar">
+              <MappingFragment StoreEntitySet="Arabalar">
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="Vites" ColumnName="Vites" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="AracResmi" ColumnName="AracResmi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerUsers">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.CustomerUser">
+              <MappingFragment StoreEntitySet="CustomerUsers">
+                <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatilanArabalars">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.SatilanArabalar">
+              <MappingFragment StoreEntitySet="SatilanArabalar">
+                <ScalarProperty Name="SatilanNo" ColumnName="SatilanNo" />
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="AlisFiyati" ColumnName="AlisFiyati" />
+                <ScalarProperty Name="SatisFiyati" ColumnName="SatisFiyati" />
+                <ScalarProperty Name="Kar" ColumnName="Kar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatilikAraclars">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.SatilikAraclar">
+              <MappingFragment StoreEntitySet="SatilikAraclar">
+                <ScalarProperty Name="SatilikNo" ColumnName="SatilikNo" />
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Vites" ColumnName="Vites" />
+                <ScalarProperty Name="Km" ColumnName="Km" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="AracResim" ColumnName="AracResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KiralikAraclars">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.KiralikAraclar">
+              <MappingFragment StoreEntitySet="KiralikAraclar">
+                <ScalarProperty Name="AracResim" ColumnName="AracResim" />
+                <ScalarProperty Name="GünlükFiyat" ColumnName="GünlükFiyat" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="KiralikNo" ColumnName="KiralikNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KiralanmisArabas">
+            <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.KiralanmisAraba">
+              <MappingFragment StoreEntitySet="KiralanmisAraba">
+                <ScalarProperty Name="KiralananTarih" ColumnName="KiralananTarih" />
+                <ScalarProperty Name="ToplamÜcret" ColumnName="ToplamÜcret" />
+                <ScalarProperty Name="KacGün" ColumnName="KacGün" />
+                <ScalarProperty Name="GünlükFiyat" ColumnName="GünlükFiyat" />
+                <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+                <ScalarProperty Name="KiraNo" ColumnName="KiraNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

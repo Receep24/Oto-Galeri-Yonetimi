@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\OtoGaleriYönetimi",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.Business",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.Business\\Repository",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.Business\\Repository\\Abstract",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.Business\\Repository\\Concrete",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.Entities",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.GUI",
+    "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.GUI\\Forms",
+    "\\resim"
+  ],
+  "SelectedNode": "\\OtoGaleriYönetimi\\OtoGaleriYönetimi.GUI\\Forms\\SatılanArabalar.cs",
+  "PreviewInSolutionExplorer": false
+}

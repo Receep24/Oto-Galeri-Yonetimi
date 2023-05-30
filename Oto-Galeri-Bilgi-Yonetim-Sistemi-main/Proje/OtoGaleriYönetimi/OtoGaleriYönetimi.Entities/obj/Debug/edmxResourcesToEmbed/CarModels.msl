@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OtoGaleriYönetimiModelStoreContainer" CdmEntityContainer="OtoGaleriYönetimiEntities">
+    <EntitySetMapping Name="AdminUsers">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.AdminUser">
+        <MappingFragment StoreEntitySet="AdminUsers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Arabalars">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.Arabalar">
+        <MappingFragment StoreEntitySet="Arabalar">
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+          <ScalarProperty Name="Vites" ColumnName="Vites" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+          <ScalarProperty Name="AracResmi" ColumnName="AracResmi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerUsers">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.CustomerUser">
+        <MappingFragment StoreEntitySet="CustomerUsers">
+          <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatilanArabalars">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.SatilanArabalar">
+        <MappingFragment StoreEntitySet="SatilanArabalar">
+          <ScalarProperty Name="SatilanNo" ColumnName="SatilanNo" />
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="AlisFiyati" ColumnName="AlisFiyati" />
+          <ScalarProperty Name="SatisFiyati" ColumnName="SatisFiyati" />
+          <ScalarProperty Name="Kar" ColumnName="Kar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatilikAraclars">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.SatilikAraclar">
+        <MappingFragment StoreEntitySet="SatilikAraclar">
+          <ScalarProperty Name="SatilikNo" ColumnName="SatilikNo" />
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Vites" ColumnName="Vites" />
+          <ScalarProperty Name="Km" ColumnName="Km" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="AracResim" ColumnName="AracResim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KiralikAraclars">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.KiralikAraclar">
+        <MappingFragment StoreEntitySet="KiralikAraclar">
+          <ScalarProperty Name="AracResim" ColumnName="AracResim" />
+          <ScalarProperty Name="GünlükFiyat" ColumnName="GünlükFiyat" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="KiralikNo" ColumnName="KiralikNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KiralanmisArabas">
+      <EntityTypeMapping TypeName="OtoGaleriYönetimiModel.KiralanmisAraba">
+        <MappingFragment StoreEntitySet="KiralanmisAraba">
+          <ScalarProperty Name="KiralananTarih" ColumnName="KiralananTarih" />
+          <ScalarProperty Name="ToplamÜcret" ColumnName="ToplamÜcret" />
+          <ScalarProperty Name="KacGün" ColumnName="KacGün" />
+          <ScalarProperty Name="GünlükFiyat" ColumnName="GünlükFiyat" />
+          <ScalarProperty Name="ArabaId" ColumnName="ArabaId" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+          <ScalarProperty Name="KiraNo" ColumnName="KiraNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

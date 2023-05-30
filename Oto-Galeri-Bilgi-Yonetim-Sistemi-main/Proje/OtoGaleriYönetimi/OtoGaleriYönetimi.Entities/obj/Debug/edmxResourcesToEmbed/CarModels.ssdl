@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OtoGaleriYönetimiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Arabalar">
+    <Key>
+      <PropertyRef Name="ArabaId" />
+    </Key>
+    <Property Name="ArabaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plaka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Vites" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fiyat" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KayitTarihi" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AracResmi" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="MusteriId" />
+    </Key>
+    <Property Name="MusteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabaId" Type="int" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fiyat" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerUsers">
+    <Key>
+      <PropertyRef Name="MusteriId" />
+    </Key>
+    <Property Name="MusteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KiralanmisAraba">
+    <Key>
+      <PropertyRef Name="KiraNo" />
+    </Key>
+    <Property Name="KiraNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriId" Type="int" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ArabaId" Type="int" Nullable="false" />
+    <Property Name="GünlükFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KacGün" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ToplamÜcret" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KiralananTarih" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KiralikAraclar">
+    <Key>
+      <PropertyRef Name="KiralikNo" />
+    </Key>
+    <Property Name="KiralikNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabaId" Type="int" Nullable="false" />
+    <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GünlükFiyat" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AracResim" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SatilanArabalar">
+    <Key>
+      <PropertyRef Name="SatilanNo" />
+    </Key>
+    <Property Name="SatilanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabaId" Type="int" Nullable="false" />
+    <Property Name="AlisFiyati" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SatisFiyati" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kar" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SatilikAraclar">
+    <Key>
+      <PropertyRef Name="SatilikNo" />
+    </Key>
+    <Property Name="SatilikNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabaId" Type="int" Nullable="false" />
+    <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plaka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Vites" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Km" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fiyat" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AracResim" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="OtoGaleriYönetimiModelStoreContainer">
+    <EntitySet Name="AdminUsers" EntityType="Self.AdminUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Arabalar" EntityType="Self.Arabalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerUsers" EntityType="Self.CustomerUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KiralanmisAraba" EntityType="Self.KiralanmisAraba" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KiralikAraclar" EntityType="Self.KiralikAraclar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatilanArabalar" EntityType="Self.SatilanArabalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatilikAraclar" EntityType="Self.SatilikAraclar" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
